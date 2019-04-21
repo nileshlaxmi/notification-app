@@ -9,7 +9,7 @@ class App extends Component {
 
     this.state = {
       message: '',
-      answer: ''
+      answer: false
     }
   }
 
@@ -25,19 +25,19 @@ class App extends Component {
   }
 
   accept = () => {
-    this.setState({ answer: "accept" })
+    this.setState({ answer: true })
   }
 
   decline = () => {
-    this.setState({ answer: "decline" })
+    this.setState({ answer: true })
   }
 
   renderConfirmPopUp = () => {
     const { answer } = this.state;
-    if (answer === '') {
+    if (answer === false) {
       return <Confirmation accept={this.accept} decline={this.decline} message={this.state.message} />
     }
-    else if (answer === 'accept' || answer === 'decline') {
+    else if (answer) {
       return <div></div>
     }
   }
