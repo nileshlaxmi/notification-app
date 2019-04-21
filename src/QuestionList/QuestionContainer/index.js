@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './index.css'
+import './index.css';
+import ConfirmationComponent from '../ConfirmationComponent/index';
 
 class QuestionContainer extends Component {
     constructor(props) {
@@ -39,11 +40,7 @@ class QuestionContainer extends Component {
         } else if (showAnswerFlag && confirmationFlag === false){
             return (
                 <div className="container">
-                    <div className="alert alert-info">
-                        <p>Reveal the answer?</p>
-                        <div className="btn-primary" onClick={this.confirmationAccepted}>Yes Please</div>
-                        <div className="btn-danger" onClick={this.confirmationDeclined}>Not Yet</div>
-                    </div>
+                    <ConfirmationComponent confirmationAccepted={this.confirmationAccepted} confirmationDeclined={this.confirmationDeclined}/>
                     <p className="question">{questionsObject.question}</p>
                     <div className={showAnswerFlag ? "btn btn-info disabled" : "btn btn-primary show-answer"} disabled={showAnswerFlag}>Show Answer</div>
                 </div>
