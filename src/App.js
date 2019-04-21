@@ -38,7 +38,7 @@ class App extends Component {
       return <Confirmation accept={this.accept} decline={this.decline} message={this.state.message} />
     }
     else if (answer) {
-      return <div></div>
+      return null;
     }
   }
   render() {
