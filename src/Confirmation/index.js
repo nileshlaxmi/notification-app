@@ -1,31 +1,24 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class Confirmation extends Component{
-    constructor(props){
-        super(props);
+const Confirmation = (props) => {
+    const acceptClickHandler = () => {
+        props.accept();
     }
 
-    acceptClickHandler = () => {
-        this.props.accept();
+    const declineClickHandler = () => {
+        props.decline();
     }
 
-    declineClickHandler = () => {
-        this.props.decline();
-    }
-
-    render(){
-        return (
-            <div>
-                <div className="alert alert-info">
-                    <p>{this.props.message}</p>
-                    <div className="btn btn-primary" onClick={this.acceptClickHandler}>Sure</div>
-                    <br /><br />
-                    <div className="btn btn-danger" onClick={this.declineClickHandler}>No Thanks</div>
-                </div>
-            </div >
-        ) 
-    }
-    
+    return (
+        <div>
+            <div className="alert alert-info">
+                <p>{props.message}</p>
+                <div className="btn btn-primary" onClick={acceptClickHandler}>Sure</div>
+                <br /><br />
+                <div className="btn btn-danger" onClick={declineClickHandler}>No Thanks</div>
+            </div>
+        </div >
+    )
 }
 
 export default Confirmation;
